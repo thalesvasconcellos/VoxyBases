@@ -1,0 +1,104 @@
+#Cofre de Jogadores
+Comandos_ajuda: #voxycofre.admin
+- ''
+- '&6Voxy Cofres'
+- '&e/voxycofres give <nick>'
+- '&e/voxycofres reload' #comando de reload dos arquivos
+- ''
+Permissao_abrir: 'voxy.Cofres.abrir' #se o jogador tiver está permissão, não será necessario estar na lista de amigos para abrir qualquer Cofre, é usada apenas para staff.
+Item_hacker:
+  material: 'stone:0' #usando como exemplo a pedra, todas as pedras, mesmo sendo renomeadas, com nbt, não importa, irão ser utilizadas como o item de hack
+  nome: '&aItem para hackear'
+  lore:
+  - ''
+  - '&cHackeando tudo!'
+  - ''
+Item_parar_hacker:
+  material: 'dirt:0'
+  nome: '&aInterromper Hackeamento'
+  lore:
+  - ''
+  - '&aPara qualquer hackeamento!'
+  - ''
+Jogador_inativo: true
+Tempo_inativo: 3 #dias, caso o jogador ficar inativo por tantos dias, o Cofre será deletado e removido do local.
+Cofre_item:
+  material: 'stone:0' #Este será o item que será colocado no chao, quando o jogador coloca-lo no local onde ele quer. #ao clicar no stone, vai abrir o Cofre, caso for dono ou se estiver adicionado na lista de amigos.
+  nome: '&aCofre Pessoal'
+  lore:
+  - ''
+  - '&cColoque no chão para usa-lo!'
+  - ''
+Hackear_jogador_offline: true #Se true, se o jogador que é dono do cofre estiver offline, não irá permitir hackear o armario.
+Mensagem_offline: '&cO dono desse cofre está offline, portanto você não pode rouba-lo.'
+Mensagem_recolher_Cofre: '&cVocê recolheu o seu cofre!'
+Mensagem_recolher_Cofre_cheio: '&cO seu cofre está cheio, esvazie-o para o recolher!'
+Sistema_upgrade: #Obs: quando o Cofre for hackeado, a segurança e a protecao irao voltar para o nivel 1, perdendo todos os niveis  de segurança desbloquedos, ja os armazens continua liberado.
+  #ao evoluir a segurança, irá demorar mais tempo para invasores hackarem o centro de controle e o portao
+  Segurança:
+    nivel_1: #o numero 1 como padrão ja vem liberado.
+      tempo_hackear: 60 #tempo em segundos para ser hackeado
+    nivel_2:
+      tempo_hackear: 120 #segundos (faz a formatação, acima de 60 '1 minuto e 20 segundos')
+      custo_upgrade: 25.000
+    nivel_3:
+      tempo_hackear: 180 #segundos
+      custo_upgrade: 50.000
+    nivel_4:
+      tempo_hackear: 240 #segundos
+      custo_upgrade: 75.000
+    nivel_5:
+      tempo_hackear: 300 #segundos
+      custo_upgrade: 100.000
+  #ao evoluir o cofre, irá liberar um armazem, duvidas esplico em game.
+  Armazens_cofre:
+    nivel_2:
+      custo_upgrade: 50.000
+    nivel_3:
+      custo_upgrade: 75.000
+    nivel_4:
+      custo_upgrade: 100.000
+    nivel_5:
+      custo_upgrade: 150.000
+Dropar_pegar: false #se true, os jogadores poderão dropar itens e pegar itens do chao com menu do Cofre aberto, se false, ira bloquear. (anti-dupe)
+Cofres_Quantidade: 2 # Quantos cofres um jogador pode ter
+Cofres_Raio: 5 # Raio para separar os cofres
+Alerta_hacking: #enviar para o dono
+  tempo_title: 3 #segundos
+  som_hacking: ''
+  title:
+  - 'ALERTA!'
+  - 'Armário sendo hackeado!'
+
+Holograma_Cofre_altura: 3 #altura do holograma
+Holograma_Cofre: #Este holograma ficará acima do Cofre da base.
+- '&e&l&nCofre Pessoal'
+- ''
+- 'Dono: {player}'
+- 'Nível de segurança: {nivel_segurança}' #1,2,3 de acordo com a quantidade de segurança desbloqueada no menu que vou mostrar em um sv localhost.
+- ''
+
+Holograma_Cofre_Hackeando:
+- '&e&l&nCofre Pessoal'
+- ''
+- 'Dono: {player}'
+- 'Hackeando: {tempo_segurança_animação}' # > https://prnt.sc/1ufzhg2 < print demonstrativa, de acordo o tempo for passando a barra vai ficando verde, quadradinho por quadradinho, mas n quero ela de inicio cinza, e sim vermelha, caso o jogador se mover, o tempo voltará ao inicio.
+- 'Tempo estimado: {tempo_segurança}'
+- ''
+
+Holograma_Cofre_Hackeado:
+- '&e&l&nCofre da Pessoal'
+- ''
+- '&7Status: &aHackeado com sucesso!'
+- ''
+- '&7Tempo para o sistema ser restaurado'
+- '&c{time}'
+- ''
+
+Tempo_holograma: 10 #em segundos, apos o tempo ser vencido, vai voltar pro holograma inicial @Holograma_Cofre, e quando o hackeamento é interrompido a tempo, não é perdido os niveis de segurança!
+Holograma_Cofre_parar_Hackeamento:
+- '&e&l&nCofre Pessoal'
+- ''
+- 'Dono: {player}'
+- 'Hackeando: Hackeamento interrompido!' #tempo travado, esse tempo travado é o tempo que estava contando, por exemplo 1m e 5s, n vai mais consta, vai ficar travado em 1m e 5s até o tempo do holograma acabar e voltar pro hd inicial.
+- ''

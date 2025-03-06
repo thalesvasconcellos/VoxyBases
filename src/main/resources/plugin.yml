@@ -1,0 +1,5 @@
+name: VoxyBases
+version: 1.0.0
+author: Thales Vasconcellos
+depend: [VoxyClans, Vault, HolographicDisplays, WorldGuard]
+main: com.vasconcellos.voxybases.VoxyBases
